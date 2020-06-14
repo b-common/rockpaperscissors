@@ -18,11 +18,14 @@ function computerPlay() {
 
 function playRound() {
     let playerInput = prompt("Rock, Paper, or Scissors?");
+        if (playerInput == null) {
+            return("try again");
+        }
     const computerSelection = computerPlay();
     const playerSelection = playerInput.toLowerCase();
 
     if (playerSelection == computerSelection){
-        return ("Draw");
+        console.log("Draw");
     }
     else if (playerSelection == "rock" && computerSelection == "scissors"){
         playerScore++;
@@ -70,10 +73,13 @@ function game() {
     if (playerScore > computerScore) {
         console.log("You win, congratulations.");    
         }
-    else {
+    else if (playerScore < computerScore) {
         console.log("You lose, that's a bummer.");
         }
-}  
+    else {
+        console.log("eeeew, a tie.");
+    }    
+    }     
 
 </script>
 
