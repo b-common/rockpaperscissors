@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<titl>Rock Paper Scissors</titl>
+</head>
+<body>
+    
+<script>
+
+let computerScore = 0;
+let playerScore = 0;
+
+function computerPlay() {
+    let options = ["rock", "paper", "scissors"];
+    let roption = options[Math.floor(Math.random() * options.length)];
+    return roption
+}
+
+function playRound() {
+    let playerInput = prompt("Rock, Paper, or Scissors?");
+    const computerSelection = computerPlay();
+    const playerSelection = playerInput.toLowerCase();
+
+    if (playerSelection == computerSelection){
+        return ("Draw");
+    }
+    else if (playerSelection == "rock" && computerSelection == "scissors"){
+        playerScore++;
+        return ("Comp selected scissors, you win, rock smashes scissors.");
+        
+    }    
+    else if (playerSelection == "rock" && computerSelection == "paper") {
+        computerScore++;
+        return ("Comp selected paper, you lose, paper covers rock.");
+        
+    }
+    else if (playerSelection == "scissors" && computerSelection == "paper"){
+        playerScore++;
+        return ("Comp selected paper, you win, scissors cut paper.");
+        
+    }
+    else if (playerSelection == "scissors" && computerSelection == "rock"){
+        computerScore++;
+        return ("Comp selected rock, you lose, rock smashes scissors.");
+        
+    }
+    else if (playerSelection == "paper" && computerSelection == "rock"){
+        playerScore++;
+        return ("Comp selected rock, you win, paper covers rock.");
+        
+    }
+    else if (playerSelection == "paper" && computerSelection == "scissors"){
+        computerScore++;
+        return ("Comp selected scissors, you lose, scissors cut paper.");
+        
+    }
+    else {
+        return ("Something went horrible wrong");
+    }
+}
+
+function game() {
+    let round = 0 
+    while (round < 5) {
+        playRound();
+            console.log(`Computer Score is ${computerScore}, Player Score is ${playerScore}`);
+            round++
+    }
+
+    if (playerScore > computerScore) {
+        console.log("You win, congratulations.");    
+        }
+    else {
+        console.log("You lose, that's a bummer.");
+        }
+}  
+
+</script>
+
+</body>    
+</html>
